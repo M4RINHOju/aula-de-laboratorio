@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+
+    int matriz[3][3];
+    int lin, col, opc = 0;
+    int maior, menor, linmaior, colmaior, linmenor, colmenor, val = 0;
+
+    do{
+    printf("..::1. Carregar Aleatorio::..\n");
+    printf("..::2. Imprimir todos::..\n");
+    printf("..::3. Maior Valor::..\n");
+    printf("..::4. Menor Valor::..\n");
+    printf("..::5. Posicao e Num::..\n");
+    printf("..::6. Pares::..\n");
+    printf("..::7. Relatorio Pares::..\n");
+    printf("..::9. Sair::..\n");
+    printf("Digite a opcao selecionada: ");
+    scanf("%d", &opc);
+
+    if (opc == 1){
+        for (lin = 0; lin < 4; lin++){
+           for (col = 0; col < 4; col++){
+            val = rand() % 500;
+            matriz[lin][col] = val; 
+           } 
+        }
+    } else if (opc == 2){
+        for (lin = 0; lin < 4; lin++){
+           for (col = 0; col < 4; col++){
+            printf("[%d][%d] = [%d] \n", lin, col, matriz[lin][col]);
+           } 
+        }
+    } else if (opc == 3){
+        int maior = matriz[0][0];
+        for (lin = 0; lin < 4; lin++){
+           for (col = 0; col < 4; col++){
+            if (matriz[lin][col] > maior){
+                maior = matriz[lin][col];
+                linmaior = lin;
+                colmaior = col;
+            }
+           } 
+        }
+        printf("Maior: %d\n", maior);
+        printf("Posicao: %d %d\n", linmaior, colmaior);
+    } else if (opc == 4){
+        int menor = matriz[0][0];
+        int linmenor, colmenor = 0;
+        for (lin = 0; lin < 4; lin++){
+           for (col = 0; col < 4; col++){
+            if (matriz[lin][col] < menor){
+                menor = matriz[lin][col];
+                linmenor = lin;
+                colmenor = col;
+            }
+           } 
+        }
+        printf("Menor: %d\n", menor);
+        printf("Posicao: %d %d\n", linmenor, colmenor);
+    } else if (opc == 5){
+
+    } else if (opc == 6){
+
+    } else if (opc == 7){
+
+    }
+
+
+
+
+    } while (opc != 9);
+
+    return 0;
+}
