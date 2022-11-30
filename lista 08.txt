@@ -1,0 +1,306 @@
+Lista 08 - Comandos de Repetição (part. 3)
+Lista 08 - Q1
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main(int argc, char *argv[]) {
+	setlocale(LC_ALL, "Portuguese");
+	
+	int A, B, C, div, R;
+	
+	R = 0;
+	
+	printf("..CONTAR E SOMAR DIVISÍVEIS.. \n");
+	printf("Digite um valor inteiro para A: ");
+	scanf("%i", &A);
+	printf("Digite um valor inteiro para B: ");
+	scanf("%i", &B);	
+	printf("Digite um valor inteiro para C: ");
+	scanf("%i", &C);
+		
+	for (div = A; div <= B; div++) {
+		if (div % C == 0) {
+			printf("O valor %i é divisível por %i \n", div, C);
+			R = R + div;			
+		}
+	}
+	
+	printf("Soma dos divisíveis por %i = %i \n", C, R);
+	
+	system("pause");
+	
+	return 0;
+}
+------------------------------------------------------------------------------------
+Lista 08 - Q2
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main(int argc, char *argv[]) {
+	setlocale(LC_ALL, "Portuguese");
+	
+	int M, SM;
+	
+	do {
+		printf("\n..SISTEMA DE MENUS..\n");
+		printf("1. Clientes           \n");
+		printf("2. Fornecedores       \n");
+		printf("3. Cidades            \n");
+		printf("9. Sair               \n");
+		printf("Escolha um menu: ");
+		scanf("%i", &M);
+		
+		if (M == 1) {
+			printf("\nMenu escolhido: \n%i. Clientes\n", M);
+			printf("11. Cadastrar Cliente         \n");
+			printf("12. Alterar Cliente           \n");
+			printf("13. Pesquisar Cliente         \n");
+			printf("14. Excluir Cliente           \n");
+			printf("19. Sair                      \n");
+			printf("Escolha um sub-menu: "); 
+			scanf("%i", &SM);
+			if (SM == 11 || SM == 12 || SM == 13 || SM == 14 || SM == 19) {
+				system("cls");
+				printf("Sub-menu escolhido: %i \n", SM);
+			} else {
+				system("cls");
+				printf("Sub-menu invalido! \n");
+			}
+		} else {
+			if (M == 2) {
+				printf("\nMenu escolhido: \n%i. Fornecedores\n", M);
+				printf("21. Cadastrar fornecedor          \n");
+				printf("22. Alterar fornecedor            \n");
+				printf("23. Pesquisar fornecedor          \n");
+				printf("24. Excluir fornecedor            \n");
+				printf("29. Sair                          \n");
+				printf("Escolha um sub-menu: "); 
+				scanf("%i", &SM);
+				if (SM == 21 || SM == 22 || SM == 23 || SM == 24 || SM == 29) {
+					system("cls");
+					printf("Sub-menu escolhido: %i \n", SM);
+				} else {
+					system("cls");
+					printf("Sub-menu invalido! \n");
+				}
+			} else {
+				if (M == 3) {
+					printf("\nMenu escolhido: \n%i. Cidades\n", M);
+					printf("31. Cadastrar cidade        \n");
+					printf("32. Alterar cidade          \n");
+					printf("33. Pesquisar cidade        \n");
+					printf("34. Excluir cidade          \n");
+					printf("39. Sair                    \n");
+					printf("Escolha um sub-menu: "); 
+					scanf("%i", &SM);
+					if (SM == 31 || SM == 32 || SM == 33 || SM == 34 || SM == 39) {
+						system("cls");
+						printf("Sub-menu escolhido: %i \n", SM);
+					} else {
+						system("cls");
+						printf("Sub-menu invalido! \n");
+					}
+				} else {
+					if (M == 9) {
+						system("pause");
+					} else {
+						system("cls");
+						printf("Menu invalido! \n");
+					}
+				}
+			}
+		}
+		
+	} while (M != 9);
+	
+	system("pause");
+	
+	return 0;
+}
+------------------------------------------------------------------------------------
+Lista 08 - Q3
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main(int argc, char *argv[]) {
+	setlocale(LC_ALL, "Portuguese");
+	
+	int A, B, C, D, menor, soma, cont, div;
+	
+	soma, cont = 0;
+	
+	printf("Digite um valor inteiro para A: ");
+	scanf("%i", &A);
+	printf("Digite um valor inteiro para B: ");
+	scanf("%i", &B);
+	printf("Digite um valor inteiro para C: ");
+	scanf("%i", &C);	
+	printf("Digite um valor inteiro para D: ");
+	scanf("%i", &D);	
+	
+	printf("\nOrdem dos valores: \n");
+	
+	//A menor, D maior
+	if ((A < B && A < C && A < D) && (D > A && D > B && D > C)) {
+		printf("Menor: %i \nMaior: %i \n", A, D);
+		for (div = A; div <= D; div++) {
+			if (div % C == 0 && div % B == 0) {
+				soma = soma + div;
+				cont = cont + 1;
+			}
+		}
+		printf("Numeros divisiveis por %i e %i entre %i e %i: %i \n", C, B, A, D, cont);
+		printf("Soma dos divisiveis por %i e %i entre %i e %i = %i \n", C, B, A, D, soma);
+	//B menor, D maior	
+	} else {
+		if ((B < C && B < A && B < D) && (D > A && D > B && D > C)) {
+			printf("Menor: %i \nMaior: %i \n", B, D); 
+			for (div = B; div <= D; div++) {
+				if (div % A == 0 && div % C == 0) {
+					soma = soma + div;
+					cont = cont + 1;
+				}
+			}
+			printf("Numeros divisiveis por %i e %i entre %i e %i: %i \n", A, C, B, D, cont);
+			printf("Soma dos divisiveis por %i e %i entre %i e %i = %i \n", A, C, B, D, soma);
+	//C menor, D maior
+		} else {
+			if ((C < A && C < B && C < D) && (D > A && D > B && D > C)) {
+				printf("Menor: %i \nMaior: %i \n", C, D);
+				for (div = C; div <= D; div++) {
+					if (div % A == 0 && div % B == 0) {
+						soma = soma + div;
+						cont = cont + 1;
+					}
+				}
+				printf("Numeros divisiveis por %i e %i entre %i e %i: %i \n", A, B, C, D, cont);
+				printf("Soma dos divisiveis por %i e %i entre %i e %i = %i \n", A, B, C, D, soma);
+	//A menor, C maior
+			} else {
+				if ((A < B && A < C && A < D) && (C > A && C > B && C > D)) {
+					printf("Menor: %i \nMaior: %i \n", A, C);
+					for (div = A; div <= C; div++) {
+						if (div % B == 0 && div % D == 0) {
+							soma = soma + div;
+							cont = cont + 1;
+						}
+					}
+					printf("Numeros divisiveis por %i e %i entre %i e %i: %i \n", B, D, A, C, cont);
+					printf("Soma dos divisiveis por %i e %i entre %i e %i = %i \n", B, D, A, C, soma);
+	//B menor, C maior
+				} else {
+					if ((B < A && B < C && B < D) && (C > A && C > B && C > D)) {
+						printf("Menor: %i \nMaior: %i \n", B, C);
+						for (div = B; div <= C; div++) {
+							if (div % A == 0 && div % D == 0) {
+								soma = soma + div;
+								cont = cont + 1;
+							}
+						}
+						printf("Numeros divisiveis por %i e %i entre %i e %i: %i \n", A, D, B, C, cont);
+						printf("Soma dos divisiveis por %i e %i entre %i e %i = %i \n", A, D, B, C, soma);
+	//D menor, C maior
+					} else {
+						if ((D < A && D < B && D < C) && (C > A && C > B && C > D)) {
+							printf("Menor: %i \nMaior: %i \n", D, C);
+							for (div = D; div <= C; div++) {
+								if (div % A == 0 && div % B == 0) {
+									soma = soma + div;
+									cont = cont + 1;
+								}
+							}
+							printf("Numeros divisiveis por %i e %i entre %i e %i: %i \n", A, B, D, C, cont);
+							printf("Soma dos divisiveis por %i e %i entre %i e %i = %i \n", A, B, D, C, soma);
+	//A menor, B maior
+						} else {
+							if ((A < B && A < C && A < D) && (B > A && B > C && B > D)) {
+								printf("Menor: %i \nMaior: %i \n", A, B);
+								for (div = A; div <= B; div++) {
+									if (div % C == 0 && div % D == 0) {
+										soma = soma + div;
+										cont = cont + 1;
+									}
+								}
+								printf("Numeros divisiveis por %i e %i entre %i e %i: %i \n", C, D, A, B, cont);
+								printf("Soma dos divisiveis por %i e %i entre %i e %i = %i \n", C, D, A, B, soma);
+	//C menor, B maior
+							} else {
+								if ((C < A && C < B && C < D) && (B > A && B > C && B > D)) {
+									printf("Menor: %i \nMaior: %i \n", C, B);
+									for (div = C; div <= B; div++) {
+										if (div % A == 0 && div % D == 0) {
+											soma = soma + div;
+											cont = cont + 1;
+										}
+									}
+									printf("Numeros divisiveis por %i e %i entre %i e %i: %i \n", A, D, C, B, cont);
+									printf("Soma dos divisiveis por %i e %i entre %i e %i = %i \n", A, D, C, B, soma);
+	//D menor, B maior
+								} else {
+									if ((D < A && D < B && D < C) && (B > A && B > C && B > D)) {
+										printf("Menor: %i \nMaior: %i \n", D, B);
+										for (div = D; div <= B; div++) {
+											if (div % A == 0 && div % C == 0) {
+												soma = soma + div;
+												cont = cont + 1;
+											}
+										}
+										printf("Numeros divisiveis por %i e %i entre %i e %i: %i \n", A, C, D, B, cont);
+										printf("Soma dos divisiveis por %i e %i entre %i e %i = %i \n", A, C, D, B, soma);
+	//B menor, A maior									
+									} else {
+										if ((B < A && B < C && B < D) && (A > B && A > C && A > D)) {
+											printf("Menor: %i \nMaior: %i \n", B, A);
+											for (div = B; div <= A; div++) {
+												if (div % C == 0 && div % D == 0) {
+													soma = soma + div;
+													cont = cont + 1;
+												}
+											}
+											printf("Numeros divisiveis por %i e %i entre %i e %i: %i \n", C, D, B, A, cont);
+											printf("Soma dos divisiveis por %i e %i entre %i e %i = %i \n", C, D, B, A, soma);
+	//C menor, A maior										
+										} else {
+											if ((C < A && C < B && C < D) && (A > B && A > C && A > D)) {
+												printf("Menor: %i \nMaior: %i \n", C, A);
+												for (div = C; div <= A; div++) {
+													if (div % B == 0 && div % D == 0) {
+														soma = soma + div;
+														cont = cont + 1;
+													}
+												}
+												printf("Numeros divisiveis por %i e %i entre %i e %i: %i \n", B, D, C, A, cont);
+												printf("Soma dos divisiveis por %i e %i entre %i e %i = %i \n", B, D, C, A, soma);
+	//D menor, A maior											
+											} else {
+												if ((D < A && D < B && D < C) && (A > B && A > C && A > D)) {
+													printf("Menor: %i \nMaior: %i \n", D, A);
+													for (div = D; div <= A; div++) {
+														if (div % B == 0 && div % C == 0) {
+															soma = soma + div;
+															cont = cont + 1;
+														}
+													}
+													printf("Numeros divisiveis por %i e %i entre %i e %i: %i \n", B, C, D, A, cont);
+													printf("Soma dos divisiveis por %i e %i entre %i e %i = %i \n", B, C, D, A, soma);
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}			
+			}
+		}
+	}
+	
+	system("pause");
+	
+	return 0;
+}
+------------------------------------------------------------------------------------

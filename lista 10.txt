@@ -1,0 +1,420 @@
+Lista 10 - Estruturas Lineares/Vetores (part.1)
+Lista 10 - Q1
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main(int argc, char *argv[]) {
+	setlocale(LC_ALL, "Portuguese");
+	
+	int id[10];
+	int op, i, j;
+	
+	do {
+		printf("\n");
+		printf("..CARREGAR E IMPRIMIR IDADES..\n");
+		printf("1. Digitar Idades             \n");
+		printf("2. Imprimir Idades            \n");
+		printf("3. Sair                       \n");
+		printf("Digite a opção: ");
+		scanf("%i", &op);
+		
+		if (op == 1) {
+			system ("cls");
+			for (i = 0; i < 10; i++) {
+				printf("Digite a idade %i: ", i);
+				scanf("%i", &j);
+				printf("\n");
+				id[i] = j;
+			}
+	
+		} else if (op == 2) {
+			system ("cls");
+			for (i = 0; i < 10; i++) {
+				printf("Idade da posição [%i]: %i \n", i, id[i]);
+			}
+		} 
+		
+	} while (op != 3);
+	
+	system("pause");
+	
+	return 0;
+}
+------------------------------------------------------------------------------------
+Lista 10 - Q2
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main(int argc, char *argv[]) {
+	setlocale(LC_ALL, "Portuguese");
+	
+	int msd[10];
+	int op, i, j;
+	
+	do {
+		printf("\n");
+		printf("..MENSALIDADES..\n");
+		printf("1. Zerar        \n");
+		printf("2. Carregar     \n");
+		printf("3. Imprimir     \n");
+		printf("4. Somar        \n");
+		printf("5. Sair         \n");
+		printf("Digite a opção: ");
+		scanf("%i", &op);
+		
+		if (op == 1) {
+			for (i = 0; i < 10; i++) {
+				msd[i] = 0;
+			}
+			printf("Vetor inicializado! \n");
+			
+		} else if (op == 2) {
+		 	for (i = 0; i < 10; i++) {
+		 		printf("Digite a mensalidade da posição [%i]: ", i);
+		 		scanf("%i", &j);
+		 		msd[i] = j;
+		 		printf("\n");
+			 }
+		 	
+		} else if (op == 3) {
+			for (i = 0; i < 10; i++) {
+				printf("Mensalidade da posição [%i]: %i \n", i, msd[i]);
+			}
+			
+		} else if (op == 4) {
+			for (i = 0; i < 10; i++) {
+				j = j + msd[i];
+			}
+			printf("Soma das mensalidades: %i \n", j);
+		}
+		
+	} while (op != 5);
+	
+	system("pause");
+	
+	return 0;
+}
+------------------------------------------------------------------------------------
+Lista 10 - Q3
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main(int argc, char *argv[]) {
+	setlocale(LC_ALL, "Portuguese");
+	
+	int op, i, j, soma, somap, somam, contp, contm;	
+	int idade[8];
+	
+	soma = 0;
+	somap = 0;
+	somam = 0;
+	contp = 0;
+	contm = 0;
+	
+	do {
+		printf("\n");
+		printf("::IDADES::                  \n");
+		printf("1. Zerar                    \n");
+		printf("2. Carregar                 \n");
+		printf("3. Imprimir                 \n");
+		printf("4. Somar                    \n");
+		printf("5. Exibir Pares             \n");
+		printf("6. Contar Pares             \n");
+		printf("7. Somar Pares              \n");
+		printf("8. Exibir Menores de Idade  \n");
+		printf("9. Contar Menores de Idade  \n");
+		printf("10. Somar Menores de Idade  \n");
+		printf("11. Sair                    \n");
+		printf("Digite a opção desejada: ");
+		scanf("%i", &op);
+		
+		if (op == 1) {
+			printf("\n1. Inicializar Vetor. \n");
+			for (i = 0; i < 8; i++) {
+				idade[i] = 0;
+			}
+			printf("Vetor Inicializado! \n");
+			
+		} else if (op == 2) {
+			printf("\n2. Carregar Idades. \n");
+			for (i = 0; i < 8; i++) {
+		 		printf("Digite a idade da posição [%i]: ", i);
+		 		scanf("%i", &j);
+		 		idade[i] = j;
+		 		printf("\n");
+			}
+			
+		} else if (op == 3) {
+			printf("\n3. Imprimir Idades. \n");
+			for (i = 0; i < 8; i++) {
+				printf("Idade da posição [%i]: %i \n", i, idade[i]);
+			}
+			
+		} else if (op == 4) {
+			printf("\n4. Somar Idades. \n");
+			for (i = 0; i < 8; i++) {
+				soma = soma + idade[i];
+			}
+			printf("Soma das idades: %i \n", soma);
+			
+		} else if (op == 5) {
+			printf("\n5. Exibir Pares. \n");
+			for (i = 0; i < 8; i++) {
+				if (idade[i] % 2 == 0) {
+					printf("A idade %i da posição [%i] é par. \n", idade[i], i);
+				}
+			}
+			
+		} else if (op == 6) {
+			printf("\n6. Contar Pares \n");
+			for (i = 0; i < 8; i++) {
+				if (idade[i] % 2 == 0) {
+					contp = contp + 1;
+				}
+			}			
+			printf("Contagem das idades pares: %i \n", contp);
+			
+		} else if (op == 7) {
+			printf("\n7. Somar Pares \n");			
+			for (i = 0; i < 8; i++) {
+				if (idade[i] % 2 == 0) {
+					somap = somap + idade[i];
+				}
+			}
+			printf("A soma das idades pares é: %i \n", somap);
+						
+		} else if (op == 8) {
+			printf("\n8. Exibir Menores de Idade \n");	
+			for (i = 0; i < 8; i++) {
+				if (idade[i] < 18) {
+					printf("A idade %i da posição [%i] é menor que 18. \n", idade[i], i);
+				}
+			}
+						
+		} else if (op == 9) {
+			printf("\n9. Contar Menores de Idade \n");		
+			for (i = 0; i < 8; i++) {
+				if (idade[i] < 18) {
+					contm = contm + 1;
+				}
+			}
+			printf("Contagem das idades menores de 18: %i \n", contm);
+						
+		} else if (op == 10) {
+			printf("\n10. Somar Menores de Idade \n");	
+			for (i = 0; i < 8; i++) {
+				if (idade[i] < 18) {
+					somam = somam + idade[i];
+				}			
+			}
+			printf("A soma das idades menores de 18 é: %i \n", somam);			
+		}
+			
+	} while (op != 11);
+	
+	system("pause");
+	
+	return 0;
+}
+------------------------------------------------------------------------------------
+Lista 10 - Q4
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <time.h>
+
+int main(int argc, char *argv[]) {
+	setlocale(LC_ALL, "Portuguese");
+	
+	int op, i, valor, x, y, soma, somai, conti, contr;
+	int val[60];
+	
+	soma = 0;
+	somai = 0;
+	conti = 0;
+	contr = 0;
+	
+	do {
+		printf("\n");
+		printf("..::SORTEIO::.. \n");
+		printf("1. Zerar Vetor               \n");
+		printf("2. Carregar Aleatório        \n");
+		printf("3. Imprimir Vetor            \n");
+		printf("4. Somar Valores             \n");
+		printf("5. Relatório dos Ímpares     \n");
+		printf("6. Maiores que X             \n");
+		printf("7. Quantos existem/repetidos \n");	
+		printf("9. Sair                      \n");
+		printf("Digite a opção desejada: ");
+		scanf("%i", &op);
+		
+		if (op == 1) {
+			system ("cls");
+			printf("\n1. Zerar Vetor \n");
+			for (i = 0; i < 60; i++) {
+				val[i] = 0;
+			}
+			printf("Vetor inicializado! \n");
+			
+		} else if (op == 2) {
+			system ("cls");
+			printf("\n2. Carregar valores aleatórios - entre 1 e 60 \n");
+			srand(time (NULL));
+			for (i = 0; i < 60; i++) {
+				valor = 1 + (rand() % 60);
+				val[i] = valor;
+			}
+			
+		} else if (op == 3) {
+			system ("cls");
+			printf("\n3. Imprimir Vetor \n");
+			for (i = 0; i < 60; i++) {
+				printf("Valor da posição [%i]: %i \n", i, val[i]);
+			}
+			
+		} else if (op == 4) {
+			system ("cls");
+			printf("\n4. Somar todos os valores do vetor \n");
+			for (i = 0; i < 60; i++) {
+				soma = soma + val[i];
+			}
+			printf("Soma dos valores: %i \n", soma);
+			
+		} else if (op == 5) {
+			system ("cls");
+			printf("\n5. Relatório dos Ímpares \n");
+			for (i = 0; i < 60; i++) {
+				if (val[i] % 2 != 0) {
+					conti = conti + 1;
+					somai = somai + val[i];
+				}
+			}
+			printf("Quantidade de números ímpares: %i \n", conti);
+			printf("Soma dos valores ímpares: %i \n", somai);
+			
+		} else if (op == 6) {
+			system ("cls");
+			printf("\n6. Maiores que X \n");
+			printf("Digite um valor entre 1 e 60 para X: ");
+			scanf("%i", &x);
+			for (i = 0; i < 60; i++) {
+				if (val[i] > x) {
+					printf("O valor %i é maior que %i \n", val[i], x);
+				}
+			}
+			
+		} else if (op == 7) {
+			system ("cls");
+			printf("\n7. Quantos existem e repetidos \n");
+			printf("Digite um valor para Y: ");
+			scanf("%i", &y);
+			for (i = 0; i < 60; i++) {
+				if (val[i] == y) {
+					contr = contr + 1;
+				}
+			}
+			printf("Existem %i repetidos do valor %i \n", contr, y);
+			
+		}
+		
+	} while (op != 9);
+
+	system("pause");
+	
+	return 0;
+}
+------------------------------------------------------------------------------------
+Lista 10 - Q5
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <time.h>
+
+int main(int argc, char *argv[]) {
+	setlocale(LC_ALL, "Portuguese");
+	
+	int op, i, j, valor, x, y;
+	int val[60];
+	int valCopy[60];
+	int cont = 0;
+	
+	do {
+		printf("\n");
+		printf("..::SORTEIO 2::..     \n");
+		printf("1. Zerar Vetor        \n");
+		printf("2. Carregar Aleatório \n");
+		printf("3. Imprimir Vetor     \n");
+		printf("4. Entre Valores      \n");
+		printf("5. Exibir Repetidos   \n");
+		printf("9. Sair               \n");
+		printf("Digite a opção desejada: ");
+		scanf("%i", &op);
+		
+		if (op == 1) {
+			system ("cls");
+			printf("\n1. Zerar Vetor \n");
+			for (i = 0; i < 60; i++) {
+				val[i] = 0;
+			}
+			printf("Vetor Inicializado! \n");
+			
+		} else if (op == 2) {
+			system ("cls");
+			printf("\n2. Carregar valores aleatórios - entre 1 e 60 \n");
+			srand(time (NULL));
+			for (i = 0; i < 60; i++) {
+				valor = 1 + (rand() % 60);
+				val[i] = valor;
+			}
+			
+		} else if (op == 3) {
+			system ("cls");
+			printf("\n3. Imprimir Vetor \n");
+			for (i = 0; i < 60; i++) {
+				printf("Valor da posição [%i]: %i \n", i, val[i]);
+			}
+			
+		} else if (op == 4) {
+			system ("cls");
+			printf("\n4. Entre valores \n");
+			printf("Digite um valor para X: ");
+			scanf("%i", &x);
+			printf("Digite um valor para Y: ");
+			scanf("%i", &y);
+			for (i = 0; i < 60; i++) {
+				if (val[i] > x && val[i] < y){
+					printf("O valor %i está entre %i e %i \n", val[i], x, y);
+				}
+			}
+			
+		} else if (op == 5) {
+			system ("cls");
+			printf("\n5. Exibir repetidos \n");
+			for (i = 0; i < 60; i++) {
+				valCopy[i] = val[i];
+			}
+						
+			for (i = 0; i < 60; i++) {
+				cont = 0;
+				for (j = 0; j < 60; j++) { 										
+					if(val[i] == valCopy[j]) {
+						cont++; 
+					}						
+				}		
+				if (cont > 1) {
+					printf("\nO valor %i repete %i vezes. \n", val[i], cont);					
+				}
+			}
+		}
+		
+		
+	} while (op != 9);
+
+	system("pause");
+	
+	return 0;
+}
+------------------------------------------------------------------------------------

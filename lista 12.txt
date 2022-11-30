@@ -1,0 +1,781 @@
+Lista 12 - Estruturas Bidimensionais/Matrizes (part. 1)
+Lista 12 - Q1
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main(int argc, char *argv[]) {
+	setlocale(LC_ALL, "Portuguese");
+	
+	int op, l, c, valor, soma;
+	int matriz[3][3];
+	soma = 0;
+	
+	do {
+		printf("\n");
+		printf("::BÁSICO::   \n");
+		printf("1. Carregar  \n");
+		printf("2. Imprimir  \n");
+		printf("3. Somar     \n");
+		printf("4. Zerar     \n");
+		printf("5. Sair      \n");
+		printf("Digite a opção desejada: ");
+		scanf("%i", &op);
+		
+		if (op == 1) {
+			printf("1. Carregar valores \n");
+			for (l = 0; l < 3; l++) {
+				for (c = 0; c < 3; c++) {
+					printf("Digite um valor para posição [%i, %i]: \n", l, c);
+					scanf("%i", &valor);
+					
+					matriz[l][c] = valor;
+				}
+			}
+			
+		} else if (op == 2) {
+			printf("2. Imprimir valores \n");
+			for (l = 0; l < 3; l++) {
+				for (c = 0; c < 3; c++) {
+					valor = matriz[l][c];
+					
+					printf("[%i, %i] = %i \n", l, c, valor);
+				}
+			}
+			
+		} else if (op == 3) {
+			printf("3. Somar valores \n");
+			for (l = 0; l < 3; l++) {
+				for (c = 0; c < 3; c++) {
+					soma = soma + matriz[l][c];
+				}
+			}
+			printf("Soma dos valores: %i \n", soma);
+			
+		} else if (op == 4) {
+			printf("4. Zerar matriz \n");
+			for (l = 0; l < 3; l++) {
+				for (c = 0; c < 3; c++) {
+					matriz[l][c] = 0;
+				}
+			}
+			
+		}		
+		
+	} while (op != 5);
+		
+	system("pause");
+	
+	return 0;
+}
+------------------------------------------------------------------------------------------------
+Lista 12 - Q2
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <time.h>
+
+int main(int argc, char *argv[]) {
+	setlocale(LC_ALL, "Portuguese");
+	
+	int op, l, c, x, y, valor, somal, somac, somalc;
+	int matrizlc[5][6];
+	
+	somal = 0;
+	somac = 0;
+	somalc = 0;
+	
+	do {
+		printf("\n");
+		printf("::LINHAS X COLUNAS::           \n");
+		printf("1. Carregar (usuário)          \n");
+		printf("2. Carregar (aleatório)        \n");
+		printf("3. Imprimir Matriz             \n");
+		printf("4. Imprimir Linha X            \n");
+		printf("5. Somar Linha X               \n");
+		printf("6. Imprimir Coluna Y           \n");
+		printf("7. Somar Linha X com Coluna Y  \n");
+		printf("8. Sair      \n");
+		printf("Digite a opção desejada: ");
+		scanf("%i", &op);	
+		
+		if (op == 1) {
+			printf("\n1. Carregar valores do usuário \n");
+			for (l = 0; l < 5; l++) {
+				for (c = 0; c < 6; c++) {
+					printf("Digite um valor para posição [%i, %i]: \n", l, c);
+					scanf("%i", &valor);
+					matrizlc[l][c] = valor;
+				}
+			}
+			
+		} else if (op == 2) {
+			printf("\n2. Carregar valores aleatórios \n");
+			srand(time (NULL));			
+			for (l = 0; l < 5; l++) {
+				for (c = 0; c < 6; c++) {
+					valor = 1 + (rand() % 50);
+					matrizlc[l][c] = valor;
+				}
+			}
+			
+		} else if (op == 3) {
+			printf("\n3. Imprimir Matriz \n");
+			for (l = 0; l < 5; l++) {
+				for (c = 0; c < 6; c++) {
+					valor = matrizlc[l][c];
+					printf("[%i, %i] = %i \n", l, c, valor);
+				}
+			}
+	
+		} else if (op == 4) {
+			printf("\n4. Imprimir Linha \n");
+			printf("Digite a linha desejada: ");
+			scanf("%i", &x);
+			
+			if (x == 0) {
+				for (c = 0; c < 6; c++) {
+					valor = matrizlc[0][c];
+					printf("[0, %i] = %i \n", c, valor);
+				}
+			
+			} else if (x == 1) {
+				for (c = 0; c < 6; c++) {
+					valor = matrizlc[1][c];
+					printf("[1, %i] = %i \n", c, valor);
+				}
+								
+			} else if (x == 2) {
+				for (c = 0; c < 6; c++) {
+					valor = matrizlc[2][c];
+					printf("[2, %i] = %i \n", c, valor);
+				}
+								
+			} else if (x == 3) {
+				for (c = 0; c < 6; c++) {
+					valor = matrizlc[3][c];
+					printf("[3, %i] = %i \n", c, valor);
+				}
+								
+			} else if (x == 4) {
+				for (c = 0; c < 6; c++) {
+					valor = matrizlc[4][c];
+					printf("[4, %i] = %i \n", c, valor);
+				}
+								
+			} else if (x < 0 || x > 4) {
+				printf("Linha inexistente! \n");
+			}
+						
+		} else if (op == 5) {
+			printf("\n5. Somar Linha \n");
+			printf("Digite a linha desejada: ");
+			scanf("%i", &x);
+			
+			if (x == 0) {
+				for (c = 0; c < 6; c++) {
+					valor = matrizlc[0][c];
+					somal = somal + valor;
+				}
+				printf("Soma da linha %i: %i \n", x, somal);
+			
+			} else if (x == 1) {
+				for (c = 0; c < 6; c++) {
+					valor = matrizlc[1][c];
+					somal = somal + valor;
+				}
+				printf("Soma da linha %i: %i \n", x, somal);
+								
+			} else if (x == 2) {
+				for (c = 0; c < 6; c++) {
+					valor = matrizlc[2][c];
+					somal = somal + valor;
+				}
+				printf("Soma da linha %i: %i \n", x, somal);
+								
+			} else if (x == 3) {
+				for (c = 0; c < 6; c++) {
+					valor = matrizlc[3][c];
+					somal = somal + valor;
+				}
+				printf("Soma da linha %i: %i \n", x, somal);
+								
+			} else if (x == 4) {
+				for (c = 0; c < 6; c++) {
+					valor = matrizlc[4][c];
+					somal = somal + valor;
+				}
+				printf("Soma da linha %i: %i \n", x, somal);
+								
+			} else if (x < 0 || x > 4) {
+				printf("Linha inexistente! \n");
+			}
+						
+		} else if (op == 6) {
+			printf("\n6. Imprimir Coluna \n");
+			printf("Digite a coluna desejada: ");
+			scanf("%i", &y);
+			
+			if (y == 0) {
+				for (l = 0; l < 5; l++) {
+					valor = matrizlc[l][0];
+					printf("[%i, 0] = %i \n", l, valor);
+				}
+			
+			} else if (y == 1) {
+				for (l = 0; l < 5; l++) {
+					valor = matrizlc[l][1];
+					printf("[%i, 1] = %i \n", l, valor);
+				}
+								
+			} else if (y == 2) {
+				for (l = 0; l < 5; l++) {
+					valor = matrizlc[l][2];
+					printf("[%i, 2] = %i \n", l, valor);
+				}
+								
+			} else if (y == 3) {
+				for (l = 0; l < 5; l++) {
+					valor = matrizlc[l][3];
+					printf("[%i, 3] = %i \n", l, valor);
+				}
+								
+			} else if (y == 4) {
+				for (l = 0; l < 5; l++) {
+					valor = matrizlc[l][4];
+					printf("[%i, 4] = %i \n", l, valor);
+				}
+								
+			} else if (y == 5) {
+				for (l = 0; l < 5; l++) {
+					valor = matrizlc[l][5];
+					printf("[%i, 5] = %i \n", l, valor);
+				}
+				
+			} else if (y < 0 || y > 5) {
+				printf("Coluna inexistente! \n");
+			}			
+						
+		} else if (op == 7) {
+			printf("\n7. Somar linha com coluna \n");
+			printf("Digite a linha desejada: ");
+			scanf("%i", &x); 
+			
+			if (x < 0 || x > 4) {
+				printf("Linha inexistente! \n");
+			} else {
+				for (c = 0; c < 6; c++) {
+					valor = matrizlc[x][c];
+					somal = somal + valor;	
+				}	
+				printf("Digite a coluna desejada: ");
+				scanf("%i", &y);
+				
+				if (y < 0 || y > 5) {
+					printf("Coluna inexistente! \n");
+				} else {
+					for (l = 0; l < 5; l++) {
+						valor = matrizlc[l][y];
+						somac = somac + valor;
+					}
+				}
+			}
+			
+			somalc = somal + somac;
+			printf("Soma da linha [%i] com a coluna [%i]: %i \n", x, y, somalc);
+ 						
+		}	
+		
+	} while (op != 8);
+	
+	system("pause");
+	
+	return 0;
+}
+------------------------------------------------------------------------------------------------
+Lista 12 - Q3
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <time.h>
+
+int main(int argc, char *argv[]) {
+	setlocale(LC_ALL, "Portuguese");
+	
+	int op, l, c, valor, x, y, somal, somac;
+	int somal0, somal1, somal2, somal3, somal4;
+	int somac0, somac1, somac2, somac3, somac4, somac5;
+	int matrizlc[5][6];
+	
+	somal = 0;
+	somal0 = 0;
+	somal1 = 0;
+	somal2 = 0;
+	somal3 = 0;
+	somal4 = 0;
+	somac = 0;
+	somac0 = 0;
+	somac1 = 0;
+	somac2 = 0;
+	somac3 = 0;
+	somac4 = 0;
+	somac5 = 0;
+		
+	do {
+		printf("\n");
+		printf("..::LINHAS X COLUNAS 2::..        \n");
+		printf("1. Carregar Aleatório             \n");
+		printf("2. Imprimir Matriz                \n");
+		printf("3. Soma por Linha                 \n");
+		printf("4. Soma por Coluna                \n");
+		printf("5. Linha com maior soma           \n");
+		printf("6. Coluna com maior soma          \n");
+		printf("7. Maior soma linha X e coluna Y  \n");
+		printf("8. Zerar Matriz                   \n");
+		printf("9. Sair                           \n");
+		printf("Digite a opção desejada: ");
+		scanf("%i", &op);
+		
+		if (op == 1) {
+			system ("cls");
+			printf("\n1. Carregar Aleatório - entre 1 e 50 \n");
+			srand(time(NULL));
+			for (l = 0; l < 5; l++) {
+				for (c = 0; c < 6; c++) {
+					valor = 1 + (rand() % 50);
+					matrizlc[l][c] = valor;
+				}
+			}
+			
+		} else if (op == 2) {
+			system ("cls");
+			printf("\n2. Imprimir Matriz \n");
+			for (l = 0; l < 5; l++) {
+				for (c = 0; c < 6; c++) {
+					valor = matrizlc[l][c];
+					printf("[%i][%i] = %i \n", l, c, valor);
+				}
+			}
+			
+		} else if (op == 3) {
+			system ("cls");
+			printf("\n3. Soma por Linha \n");
+			for (c = 0; c < 6; c++) {
+				valor = matrizlc[0][c];
+				somal0 = somal0 + valor;
+			}
+			printf("Soma da linha [0]: %i \n", somal0);
+			
+			for (c = 0; c < 6; c++) {
+				valor = matrizlc[1][c];
+				somal1 = somal1 + valor;
+			}
+			printf("Soma da linha [1]: %i \n", somal1);
+			
+			for (c = 0; c < 6; c++) {
+				valor = matrizlc[2][c];
+				somal2 = somal2 + valor;
+			}
+			printf("Soma da linha [2]: %i \n", somal2);
+			
+			for (c = 0; c < 6; c++) {
+				valor = matrizlc[3][c];
+				somal3 = somal3 + valor;
+			}
+			printf("Soma da linha [3]: %i \n", somal3);
+			
+			for (c = 0; c < 6; c++) {
+				valor = matrizlc[4][c];
+				somal4 = somal4 + valor;
+			}
+			printf("Soma da linha [4]: %i \n", somal4);						
+			
+		} else if (op == 4) {
+			system ("cls");
+			printf("\n4. Soma por Coluna \n");
+			
+			for (l = 0; l < 5; l++) {
+				valor = matrizlc[l][0];
+				somac0 = somac0 + valor;
+			}
+			printf("Soma da coluna [0]: %i \n", somac0);
+			
+			for (l = 0; l < 5; l++) {
+				valor = matrizlc[l][1];
+				somac1 = somac1 + valor;
+			}
+			printf("Soma da coluna [1]: %i \n", somac1);
+					
+			for (l = 0; l < 5; l++) {
+				valor = matrizlc[l][2];
+				somac2 = somac2 + valor;
+			}
+			printf("Soma da coluna [2]: %i \n", somac2);
+					
+			for (l = 0; l < 5; l++) {
+				valor = matrizlc[l][3];
+				somac3 = somac3 + valor;
+			}
+			printf("Soma da coluna [3]: %i \n", somac3);
+					
+			for (l = 0; l < 5; l++) {
+				valor = matrizlc[l][4];
+				somac4 = somac4 + valor;
+			}
+			printf("Soma da coluna [4]: %i \n", somac4);
+					
+			for (l = 0; l < 5; l++) {
+				valor = matrizlc[l][5];
+				somac5 = somac5 + valor;
+			}
+			printf("Soma da coluna [5]: %i \n", somac5);		
+			
+		} else if (op == 5) {
+			system ("cls");
+			printf("\n5. Linha com maior soma \n");
+			
+			if (somal0 > somal1 && somal0 > somal2 && somal0 > somal3 && somal0 > somal4) {
+				printf("Linha [0] possui a maior soma: %i \n", somal0);
+			} else if (somal1 > somal0 && somal1 > somal2 && somal1 > somal3 && somal1 > somal4) {
+				printf("Linha [1] possui a maior soma: %i \n", somal1);
+			} else if (somal2 > somal1 && somal2 > somal0 && somal2 > somal3 && somal2 > somal4) {
+				printf("Linha [2] possui a maior soma: %i \n", somal2);
+			} else if (somal3 > somal1 && somal3 > somal2 && somal3 > somal0 && somal3 > somal4) {
+				printf("Linha [3] possui a maior soma: %i \n", somal3);
+			} else if (somal4 > somal1 && somal4 > somal2 && somal4 > somal3 && somal4 > somal0) {
+				printf("Linha [4] possui a maior soma: %i \n", somal4);
+			}
+			
+		} else if (op == 6) {
+			system ("cls");
+			printf("\n6. Coluna com a maior soma \n");
+			
+			if (somac0 > somac1 && somac0 > somac2 && somac0 > somac3 && somac0 > somac4 && somac0 > somac5) {
+				printf("Coluna [0] possui a maior soma: %i \n", somac0);
+			} else if (somac1 > somac0 && somac1 > somac2 && somac1 > somac3 && somac1 > somac4 && somac1 > somac5) {
+				printf("Coluna [1] possui a maior soma: %i \n", somac1);
+			} else if (somac2 > somac1 && somac2 > somac0 && somac2 > somac3 && somac2 > somac4 && somac2 > somac5) {
+				printf("Coluna [2] possui a maior soma: %i \n", somac2);
+			} else if (somac3 > somac1 && somac3 > somac2 && somac3 > somac0 && somac3 > somac4 && somac3 > somac5) {
+				printf("Coluna [3] possui a maior soma: %i \n", somac3);
+			} else if (somac4 > somac1 && somac4 > somac2 && somac4 > somac3 && somac4 > somac0 && somac4 > somac5) {
+				printf("Coluna [4] possui a maior soma: %i \n", somac4);
+			} else if (somac5 > somac1 && somac5 > somac2 && somac5 > somac3 && somac5 > somac4 && somac5 > somac0) {
+				printf("Coluna [5] possui a maior soma: %i \n", somac5);
+			}		
+			
+		} else if (op == 7) {
+			system ("cls");
+			printf("\n7. Maior soma Linha X e Coluna Y \n");
+			
+			printf("Digite um valor para linha: ");
+			scanf("%i", &x);
+			
+			if (x < 0 || x > 5) {
+				printf("Linha Inválida! \n");
+			} else {
+				for (c = 0; c < 6; c++) {
+					valor = matrizlc[x][c];
+					somal = somal + valor;
+				}
+				printf("Digite um valor para coluna: ");
+				scanf("%i", &y);
+				
+				if (y < 0 || y > 6) {
+					printf("Coluna Inválida! \n");
+				} else {
+					for (l = 0; l < 5; l++) {
+						valor = matrizlc[l][y];
+						somac = somac + valor;
+					}
+				}
+				
+				printf("Soma da linha [%i]: %i \n", x, somal);
+				printf("Soma da coluna [%i]: %i \n", y, somac);
+				
+				if (somal > somac) {
+					printf("A soma da linha [%i] é maior que a soma da coluna [%i]! \n", x, y);
+				} else if (somac > somal) {
+					printf("A soma da coluna [%i] é maior que a soma da coluna [%i]! \n", y, x);
+				}
+				
+			} 
+			
+		} else if (op == 8) {
+			system ("cls");
+			printf("\8. Zerar Matriz \n");
+			for (l = 0; l < 5; l++) {
+				for (c = 0; c < 6; c++) {
+					matrizlc[l][c] = 0;
+					somal = 0;
+					somac = 0;
+					somal0 = 0;
+					somal1 = 0;
+					somal2 = 0;
+					somal3 = 0;
+					somal4 = 0;
+					somac0 = 0;
+					somac1 = 0;
+					somac2 = 0;
+					somac3 = 0;
+					somac4 = 0;
+					somac5 = 0;
+				}
+			}
+			printf("Matriz Inicializada! \n");
+		}
+			
+	} while (op != 9);
+
+	system("pause");
+	
+	return 0;
+}
+------------------------------------------------------------------------------------------------
+Lista 12 - Q4 - *INCOMPLETO*
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <time.h>
+
+int main(int argc, char *argv[]) {
+	setlocale(LC_ALL, "Portuguese");
+	
+	int op, l, c, valor, x;
+	int maior = 0; int menor = 5000;
+	int i = 0; int j = 0;
+	int contr = 0; int contp = 0; int conti = 0;
+	int maiorp = 0; int menorp = 5000;
+	int maiori = 0; int menori = 5000;
+	int matriz[3][3];
+	int somap = 0; int somai = 0;
+	
+	do {
+		printf("\n");
+		printf("..::PROCESSAMENTO::..         \n");
+		printf("1. Carregar Aleatório         \n");
+		printf("2. Imprimir Matriz            \n");
+		printf("3. Maior Valor                \n");
+		printf("4. Menor Valor                \n");
+		printf("5. Valor Repetido             \n");
+		printf("6. Imprimir Pares             \n");
+		printf("7. Relatório Pares X Ímpares  \n");
+		printf("8. Zerar Matriz               \n");
+		printf("9. Sair                       \n");
+		printf("Digite a opção desejada: ");
+		scanf("%i", &op);
+		
+		if (op == 1) {
+			system ("cls");
+			printf("\n1. Carregar Aleatório - entre 0 e 5000 \n");
+			srand(time(NULL));
+			for (l = 0; l < 3; l++) {
+				for (c = 0; c < 3; c++) {
+					valor = 1 + (rand() % 10);
+					matriz[l][c] = valor;
+				}
+			}
+			
+		} else if (op == 2) {
+			system ("cls");
+			printf("\n2. Imprimir Matriz \n");
+			for (l = 0; l < 3; l++) {
+				for (c = 0; c < 3; c++) {
+					valor = matriz[l][c];
+					printf("[%i, %i]: %i \n", l, c, valor);
+				}
+			}
+			
+		} else if (op == 3) {
+			system ("cls");
+			printf("\n3. Maior Valor \n");
+			for (l = 0; l < 3; l++) {
+				for (c = 0; c < 3; c++) {
+					valor = matriz[l][c];
+					if (matriz[l][c] > maior) {
+						maior = matriz[l][c];
+						i = l;
+						j = c;
+					}
+				}
+			}
+			printf("O maior valor é %i e está na posição [%i, %i] \n", maior, i, j);
+			
+		} else if (op == 4) {
+			system ("cls");
+			printf("\n4. Menor Valor \n");
+			for (l = 0; l < 3; l++) {
+				for (c = 0; c < 3; c++) {
+					valor = matriz[l][c];
+					if (matriz[l][c] < menor) {
+						menor = matriz[l][c];
+						i = l;
+						j = c;
+					}
+				}
+			}
+			printf("O menor valor é %i e está na posição [%i, %i] \n", menor, i, j);
+ 			
+		} else if (op == 5) {
+			system ("cls");
+			printf("\n5. Valor Repetido \n");
+			printf("Digite um valor: ");
+			scanf("%i", &x);
+			
+			for (l = 0; l < 3; l++) {
+				for (c = 0; c < 3; c++) {
+					valor = matriz[l][c];
+					if (x == valor){
+						contr = contr + 1;
+						printf("O valor %i está na posição [%i, %i] \n", x, l, c);
+					}
+				}
+			}
+			printf("O valor %i foi repetido %i vezes. \n", x, contr);
+			
+		} else if (op == 6) {
+			system ("cls");
+			printf("\n6. Imprimir Pares \n");
+			printf("Valores pares: \n");
+			for (l = 0; l < 3; l++)	{
+				for (c = 0; c < 3; c++) {
+					valor = matriz[l][c];
+					if (valor % 2 == 0) {
+						printf("%i \n", valor);
+					}
+				}
+			}	 
+				
+		} else if (op == 7) {
+			system ("cls");
+			printf("\n7. Relatório Pares X Ímpares \n");
+			
+			for (l = 0; l < 3; l++)	{
+				for (c = 0; c < 3; c++) {
+					valor = matriz[l][c];
+					if (valor % 2 == 0) {
+						contp = contp + 1;
+					}
+				}
+			}
+			printf("Há %i valores pares! \n", contp);
+			
+			for (l = 0; l < 3; l++)	{
+				for (c = 0; c < 3; c++) {
+					valor = matriz[l][c];
+					if (valor % 2 != 0) {
+						conti = conti + 1;
+					}
+				}
+			}
+			printf("Há %i valores ímpares! \n", conti);
+
+			for (l = 0; l < 3; l++)	{
+				for (c = 0; c < 3; c++) {
+					valor = matriz[l][c];
+					if (valor % 2 == 0) {
+						somap = somap + valor;
+					}
+				}
+			}	
+			printf("Soma dos valores pares: %i \n", somap);
+	
+			for (l = 0; l < 3; l++)	{
+				for (c = 0; c < 3; c++) {
+					valor = matriz[l][c];
+					if (valor % 2 != 0) {
+						somai = somai + valor;
+					}
+				}
+			}		
+			printf("Soma dos valores ímpares: %i \n", somai);	
+					
+			for (l = 0; l < 3; l++) {
+				for (c = 0; c < 3; c++) {
+					valor = matriz[l][c];
+					if (valor % 2 == 0) {
+						if (matriz[l][c] < menorp) {
+							menorp = matriz[l][c];
+							i = l;
+							j = c;
+						}
+					}
+				}
+			}
+			printf("O menor valor par é %i e está na posição [%i, %i]. \n", menorp, i, j);
+		
+			for (l = 0; l < 3; l++) {
+				for (c = 0; c < 3; c++) {
+					valor = matriz[l][c];
+					if (valor % 2 == 0) {
+						if (matriz[l][c] > maiorp) {
+							maiorp = matriz[l][c];
+							i = l;
+							j = c;
+						}
+					}
+				}
+			}
+			printf("O maior valor par é %i e está na posição [%i, %i]. \n", maiorp, i, j);
+			
+			for (l = 0; l < 3; l++) {
+				for (c = 0; c < 3; c++) {
+					valor = matriz[l][c];
+					if (valor % 2 != 0) {
+						if (matriz[l][c] < menori) {
+							menori = matriz[l][c];
+							i = l;
+							j = c;
+						}
+					}
+				}
+			}
+			printf("O menor valor par é %i e está na posição [%i, %i]. \n", menori, i, j);	
+
+			for (l = 0; l < 3; l++) {
+				for (c = 0; c < 3; c++) {
+					valor = matriz[l][c];
+					if (valor % 2 != 0) {
+						if (matriz[l][c] > maiori) {
+							maiori = matriz[l][c];
+							i = l;
+							j = c;
+						}
+					}
+				}
+			}
+			printf("O maior valor par é %i e está na posição [%i, %i]. \n", maiori, i, j);	
+						
+			if (contp > conti) {
+				printf("Há mais números pares do que números ímpares! \n");
+			} else if (conti > contp) {
+				printf("Há mais números ímpares do que números pares! \n");
+			}
+			
+			if (somap > somai) {
+				printf("A soma dos números pares é maior do que a soma dos números ímpares. \n");
+			} else if (somai > somap) {
+				printf("A soma dos números ímpares é maior do que a soma dos números pares. \n");
+			}
+			
+			//valor médio dos valores pares e ímpares
+				
+		} else if (op == 8) {
+			system ("cls");
+			printf("\n8. Zerar Matriz \n");	
+			for (l = 0; l < 3; l++) {
+				for (c = 0; c < 3; c++) {
+					matriz[l][c] = 0;
+				}
+			}		
+			printf("Matriz Inicializada! \n");
+			
+		}
+		
+	} while (op != 9);
+
+	system("pause");
+	
+	return 0;
+}
+------------------------------------------------------------------------------------------------
