@@ -1,0 +1,640 @@
+LISTA MATRIZ
+
+NOTAS GERAIS 
+- Lembre-se que toda matriz deve ser inicializada/zerado antes de efetivamente iniciar a sua 
+manipulação.  
+- Crie um projeto para cada um dos exercícios, utilize como base um projeto que contenha um menu 
+interativo.  
+ 
+ 
+Q1 
+BASICO  –  Crie  uma  matriz  capaz  de  armazenar  9  valores  inteiros  quaisquer,  baseado  nessa  matriz 
+implemente o menu abaixo para manipular as informações desta matriz.  
+ 
+MENU 
+1. Carregar (Usuário deverá fornecer os dados para preencher cada uma das posições da matriz) 
+2. Imprimir (Deverá exibir o valor contido em cada uma das posições da matriz) 
+3. Somar (Deverá somar todos os valores armazenados em cada uma das posições e exibir o resultado) 
+4. Zerar (Deverá zerar os valores armazenados em cada uma das posições da matriz). 
+9. Sair 
+ 
+ int main(int argc, char *argv[]) {
+	
+	int opcao = 0;
+	int matriz[3][3];
+	int i = 0, j = 0, soma = 0;
+	
+	printf ("\t INICIALIZACAO DA MATRIZ \n");
+	for(i = 0; i <=2; i++) {
+				for(j = 0; j <= 2; j++) {
+					matriz[i][j] = -1;
+					printf ("Posicao [%i, %i] = %i \n", i,j, matriz[i][j]);
+				}
+				printf ("\n");
+			}
+	
+	while (opcao != 9) {
+		printf ("\t ...::: MATRIZ :::...\n");
+		printf ("1 . CARREGAR           \n");
+		printf ("2 . IMPRIMIR           \n");
+		printf ("3 . SOMAR              \n");
+		printf ("4 . ZERAR              \n");
+		printf ("9 . SAIR               \n");
+		printf ("Digite a opcao: \n");
+		scanf ("%i", &opcao);
+	
+		
+		if (opcao == 1) {
+			for(i = 0; i <=2; i++) {
+				for(j = 0; j <= 2; j++) {
+					printf ("Digite os valores para a matriz \n");
+					scanf ("%i", &matriz[i][j]);
+				}
+				printf ("\n");
+			}
+			
+		} else if (opcao == 2) {
+			for(i = 0; i <=2; i++) {
+				for(j = 0; j <= 2; j++) {
+					printf ("Posicao [%i, %i] = %i \n", i,j, matriz[i][j]);
+				}
+				printf ("\n");
+			}
+			
+		} else if (opcao == 3) {
+			soma = 0;
+			for(i = 0; i <=2; i++) {
+				for(j = 0; j <= 2; j++) {
+					soma += matriz[i][j];
+				}
+				printf ("\n");
+			}
+			printf ("Soma da matriz: %i \n", soma);
+			
+		} else if (opcao == 4) {
+			for(i = 0; i <=2; i++) {
+				for(j = 0; j <= 2; j++) {
+					matriz[i][j] = 0;
+					printf ("Posicao [%i, %i] = %i \n", i,j, matriz[i][j]);
+				}
+				printf ("\n");
+			}
+		}
+	}
+	
+	system ("pause");
+	return 0;
+}
+
+
+
+Q2 
+LINHAS X COLUNAS – Crie uma matriz capaz de armazenar 30 valores inteiros, baseado nesta matriz 
+implemente o menu abaixo, cada uma das opções do menu deverá executar uma ação sobre a matriz. 
+ 
+MENU – LINHAS X COLUNAS 
+1. Carregar usuário (deverá solicitar valores inteiros ao usuário e armazenar na matriz) 
+2. Carregar aleatório (deverá sortear valores aleatórios entre 0 e 50 e armazenar na matriz) 
+3. Imprimir (Deverá exibir o endereço e o valor contido em cada posição da matriz) 
+4.  Imprimir  linhas  x  (Deverá  solicitar  um  número  inteiro  que  corresponderá  a  uma  linha  da  matriz, 
+todos  os  valores  da  linha  informada  deverão  ser  impressos,  atenção  é  necessário  validar  se  a  linha 
+existe).  
+5.  Somar  linha  x  (Deverá  solicitar  do  usuário  um  número  inteiro  que  corresponderá  a  uma  linha  da 
+matriz, todos os valores da linha deverão ser somados e o resultado deverá ser apresentado, atenção 
+é necessário validar se a linha existe na matriz) 
+6. Imprimir coluna y (Deverá solicitar um número inteiro que corresponderá a uma coluna da matriz, 
+todos os valores desta coluna deverão ser impressos, atenção pois é necessário verificar se a coluna 
+existe na matriz.  
+7 Somar linha x com coluna y (Deverá solicitar do usuário dois valores (x, y) o primeiro corresponderá 
+a uma linha da matriz e o segundo a uma coluna, todos os valores da linha e coluna informada deverão 
+serem  somados  e  o  resultado  apresentado,  atenção  pois  é  necessário  verificar  se  a  linha/coluna 
+existem na matriz).   
+9. Sair 
+ 
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+
+
+int main(int argc, char *argv[]) {
+	
+	int opcao = 0;
+	int matriz[5][6];
+	int i = 0, j = 0, linha = 0, soma = 0, coluna = 0;
+	int somaLinha = 0, somaColuna = 0; 
+	
+	srand (time(NULL));
+	
+	for (i = 0; i <= 4; i++) {
+		for (j = 0; j <= 5; j++) {
+			matriz[i][j] = -1;
+			printf ("Posicao [%i][%i] = %i \n", i, j, matriz[i][j]);
+		}
+		printf ("\n");
+	}
+	
+	while (opcao != 9) {
+		printf ("\t LINHAS E COLUNAS    \n");
+		printf ("1 . CARREGAR USUARIO   \n");
+		printf ("2 . CARREGAR ALEATORIO \n");
+		printf ("3 . IMPRIMIR           \n");
+		printf ("4 . IMPRIMIR LINHA X   \n");
+		printf ("5 . SOMAR LINHA X      \n");
+		printf ("6 . IMPRIMIR COLUNA Y  \n");
+		printf ("7 . SOMAR LINHA X COM Y\n");
+		printf ("9 . SAIR \n");
+		printf ("Digite uma opcao:      \n");
+		scanf ("%i", &opcao);
+		printf ("\n");
+		
+		if (opcao == 1) {
+			for (i = 0; i <= 4; i++) {
+				for (j = 0; j <= 5; j++) {
+					printf ("Digite valores para a matriz \n");
+					scanf ("%i", &matriz[i][j]);
+				}
+				printf ("\n");
+			}
+			
+			printf ("\n");
+		} else if (opcao == 2) {
+			for (i = 0; i <= 4; i++) {
+				for (j = 0; j <= 5; j++) {
+					matriz[i][j] = 1 + rand () % 50;
+				}
+				printf ("\n");
+			}
+			
+			printf ("\n");
+		} else if (opcao == 3) {
+			for (i = 0; i <= 4; i++) {
+				for (j = 0; j <= 5; j++) {
+					printf ("Posicao [%i][%i] = %i \n", i, j, matriz[i][j]);
+				}
+				printf ("\n");
+			}
+			
+			printf ("\n");
+		} else if (opcao == 4) {
+			printf ("Digite a linha que queira acessar: \n");
+			scanf ("%i", &linha);
+			if ((linha >= 0)&&(linha <= 4)) {
+				for (i = linha; i <= linha; i++) {
+						for (j = 0; j <= 5; j++) {
+							printf ("Posicao [%i][%i] = %i \n", i, j, matriz[i][j]);
+						}
+						printf ("\n");
+					} 
+				
+				} else {
+				printf ("Linha INVALIDA! \n");
+			}
+			
+		} else if (opcao ==5) {
+			soma = 0;
+			for (i = linha; i <= linha; i++) {
+						for (j = 0; j <= 5; j++) {
+							soma += matriz[i][j];
+						}
+						printf ("Soma da linha: %i \n", soma);
+			}	
+			
+		} else if (opcao ==6) {
+			printf ("Digite a coluna que queira acessar: \n");
+			scanf ("%i", &coluna);
+			if ((coluna >= 0)&&(coluna <= 5)) {
+				for (i = 0; i <= 2; i++) {
+						for (j = coluna; j <= coluna; j++) {
+							printf ("Posicao [%i][%i] = %i \n", i, j, matriz[i][j]);
+						}
+				printf ("\n");
+				}
+			} else {
+				printf ("Coluna INVALIDA! \n");
+			}
+			
+			printf ("\n");
+			
+		} else if (opcao ==7) {
+			somaLinha = 0;
+			somaColuna = 0;
+			printf ("Digite a linha: \n");
+			scanf ("%i", &linha);
+			printf ("Digite a coluna: \n");
+			scanf ("%i", &coluna);
+			
+			if ((linha >= 0)&&(linha <= 4)) {
+				for (i = linha; i <= linha; i++) {
+					for (j = 0; j <= 5; j++) {
+						somaLinha += matriz[i][j];
+					}
+				}
+			} else {
+				printf ("Linha INVALIDA! \n");
+				
+			} 
+			 if ((coluna >= 0)&&(coluna <= 2)) {
+				for (i = 0; i <= 4; i++) {
+					for (j = coluna; j <= coluna; j++) {
+						somaColuna += matriz[i][j];
+					}
+				}
+			} else {
+				printf ("Coluna INVALIDA! \n");
+			}
+			
+			printf ("Soma da linha e coluna: %i \n", somaLinha + somaColuna);
+		}
+		printf ("\n");
+	}
+	
+	printf ("\n");
+	system ("pause");
+	return 0;
+}
+
+
+
+Q3 
+LINHAS X COLUNAS 2 – Crie uma matriz capaz de armazenar 30 valores inteiros, baseado nesta matriz 
+implemente o menu abaixo, cada uma das opções do menu deverá executar uma ação sobre a matriz. 
+ 
+MENU – LINHAS X COLUNAS 2 
+1. Carregar aleatório (considerar valores entre 0 e 50) 
+2. Imprimir todos 
+3. Soma por linha (apresente o número de cada linha e a soma dos valores da linha correspondente) 
+3. Soma por coluna (apresente o número de cada coluna e a soma dos valores da coluna) 
+4. Linha com a maior soma (apresente a linha que contém a maior soma dentre as somas das linhas) 
+5. Coluna com maior soma (idem ao item 4) 
+6. Maior soma linha x coluna y (solicite o número de uma linha e coluna do usuário, some os valores 
+da linha e da coluna e verifique qual contém o maior valor, é importante verificar se o número da linha 
+e coluna fornecido existe na matriz) 
+9. Sair 
+ 
+ #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+
+int main(int argc, char *argv[]) {
+	
+	int opcao = 0;
+	int matriz [3][3];
+	int i = 0, j = 0;
+	int somaLinha[3], soma = 0, somaColuna[3];
+	int maiorLinha = 0, maiorColuna = 0;
+	int linha7, coluna7, auxMaior;
+	
+	srand (time(NULL));
+	
+	printf ("\t INICIALIZACAO DA MATRIZ \n");
+	for (i = 0; i <= 2; i++) {
+		for (j = 0; j <= 2; j++) {
+			matriz[i][j] = -1;
+			printf ("Posicao [%i][%i] = %i | ", i, j, matriz[i][j]);
+		}
+		printf ("\n");
+	} 
+	printf ("\n");
+	while (opcao != 9) {
+		printf ("1 . CARREGAR ALEATORIOS            \n");
+		printf ("2 . IMPRIMIR                       \n");
+		printf ("3 . SOMA POR LINHA                 \n");
+		printf ("4 . SOMA POR COLUNA                \n");
+		printf ("5 . LINHA COM MAIOR SOMA           \n");
+		printf ("6 . COLUNA COM MAIOR SOMA          \n");
+		printf ("7 . MAIOR SOMA LINHAS Vs COLUNA    \n");
+		printf ("9 . SAIR \n");
+		printf ("Digite a opcao desejada            \n");
+		scanf ("%i", &opcao);
+		printf ("\n");
+		
+		if (opcao == 1) {
+			for (i = 0; i <= 2; i++) {
+				for (j = 0; j <= 2; j++) {
+					matriz[i][j] = 1 + rand () % 50;
+				}
+			}
+			
+		} else if (opcao == 2) {
+			for (i = 0; i <= 2; i++) {
+				for (j = 0; j <= 2; j++) {
+					printf (" %i ", matriz[i][j]);
+				}
+				printf ("\n");
+			}
+			printf ("\n");
+		} else if (opcao == 3) {
+			// criar um vetor para somar cada linha
+		    for (i = 0; i <= 2; i++) {
+		    	soma = 0;
+				for (j = 0; j <= 2; j++) {
+					soma += matriz[i][j];
+				}
+				somaLinha[i] = soma;
+				printf ("Soma da linha [%i] = %i \n", i, somaLinha[i]);
+			}
+			printf ("\n");	
+		} else if (opcao == 4) {
+			// criar um vetor para somar cada coluna
+			//inverter o loop
+		    for (j = 0; j <= 2; j++) {
+		    	soma = 0;
+				for (i = 0; i <= 2; i++) {
+					soma += matriz[i][j];
+				}
+				somaColuna[j] = soma;
+				printf ("Soma da coluna [%i] = %i \n", j, somaColuna[j]);
+			}
+			printf ("\n");
+		} else if (opcao == 5) {
+			maiorLinha = somaLinha[0];
+		    for (i = 0; i <= 2; i++) {
+		    	soma = 0;
+				for (j = 0; j <= 2; j++) {
+					soma += matriz[i][j];
+				}
+				somaLinha[i] = soma;
+		
+				if (somaLinha[i] > maiorLinha) {
+					maiorLinha = somaLinha[i];
+					
+				} else if (somaLinha[0] == maiorLinha) {
+					maiorLinha = somaLinha[0];
+				} 
+			}
+			printf ("Linha com maior soma: %i\n", maiorLinha); 
+			printf ("\n");	
+		} else if (opcao == 6) {
+			maiorColuna = somaColuna[0];
+			for (j = 0; j <= 2; j++) {
+		    	soma = 0;
+				for (i = 0; i <= 2; i++) {
+					soma += matriz[i][j];
+				}
+				somaColuna[j] = soma;
+				
+				if (somaColuna[j] > maiorColuna) {
+					maiorColuna = somaColuna[j];
+					
+				} else if (somaColuna[0] == maiorColuna) {
+					maiorColuna = somaColuna[0];
+				}
+			}
+			printf ("Coluna com maior soma: %i\n", maiorColuna);
+			printf ("\n");
+			
+		} else if (opcao == 7) {
+			 auxMaior = 0;
+			printf ("Digite uma linha: \n");
+			scanf ("%i", &linha7);
+			printf ("Digite uma coluna: \n");
+			scanf ("%i", &coluna7);
+			
+			if ((linha7 >= 0)&&(linha7 <=2)) {
+				for (i = 0; i <= linha7; i++) {
+		    			soma = 0;
+					for (j = 0; j <= 2; j++) {
+						soma += matriz[i][j];
+					}
+					somaLinha[i] = soma;
+					printf ("Soma da linha [%i] = %i \n\n", i, somaLinha[i]);
+				}
+		
+			} else {
+						printf ("Linha INVALIDA ! \n");
+						printf ("\n");
+					}
+					
+			 		if ((coluna7 >= 0)&&(coluna7 <=2)) {
+						for (j = 0; j <= coluna7; j++) {
+		    					soma = 0;
+							for (i = 0; i <= 2; i++) {
+								soma += matriz[i][j];
+							}
+								somaColuna[j] = soma;
+								printf ("Soma da coluna [%i] = %i \n\n", j, somaColuna[j]);
+						}
+				
+					} else {
+							printf ("Coluna INVALIDA ! \n");
+							printf ("\n");
+						}
+					
+					for (i = 0; i <= 2; i++) {
+						for (j = 0; j <= 2; j++) {
+							if (somaLinha[i] > somaColuna[j]) {
+								auxMaior = somaLinha[i];
+								
+							} else if (somaColuna[j] > somaLinha[i]) {
+								auxMaior = somaColuna[j];
+							}
+						}
+						printf ("Maior soma: %i \n", auxMaior);
+					}	
+		}
+	}
+	system ("pause");
+	return 0;
+}
+
+
+
+Q4 
+PROCESSAMENTO – Crie uma matriz capaz de armazenar 1000 valores inteiros, baseado nesta matriz 
+implemente o menu abaixo (Dica – Crie uma matriz menor para conferir se os métodos irão funcionar 
+e somente depois aumente o tamanho): 
+ 
+MENU – PROCESSAMENTO 
+1. Carregar aleatório (considere valores entre 0 e 5000) 
+2. Imprimir todos 
+3. Maior valor (percorra a matriz e localize o maior valor existente, imprima a posição e valor) 
+4. Menor valor (idem item 3) 
+5. Posição e Núm. de Repetições (solicite do usuário um valor inteiro, percorra a matriz e imprima as 
+posições onde o valor está contido, no final do processamento imprima a quantidade de vezes que o 
+valor existe) 
+6. Pares (percorra a matriz e imprima na tela apenas os nforúmeros pares) 
+7.  Relatório  Pares  x  Ímpares  (percorra  a  matriz,  ao  término  do  processamento  exiba  as  seguintes 
+informações:  
+Número de valores pares e ímpares existentes;  
+Soma dos valores pares e ímpares;  
+Maior e menor número par;  
+Maior e menor número ímpar; 
+Valor médio dos valores pares e ímpares; 
+Maior soma (compare as somas e exiba o que contiver a maior soma); 
+Maior contagem (compare a contagem e exiba o que contiver a maior contagem) )  
+9. Sair
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(int argc, char *argv[]) {
+	
+	int opcao = 0;  
+	int matriz[3][3], i, j;
+	int maior = 0, menor = 0;
+	int linha = 0, coluna = 0;
+	int repetido = 0, numero, par, contaPar, contaImpar;
+	int somaPar, somaImpar, valorMedioPar, valorMedioImpar, calculo, calculoContagem;
+	
+	srand (time(NULL));
+	
+	printf ("\t INICIALIZACAO DA MATRIZ \n");
+	for (i = 0; i < 3; i++) {
+		for (j = 0; j < 3; j++) {
+			matriz[i][j] = -1;
+			printf ("%i ", matriz[i][j]);
+		}
+		printf ("\n");
+	}
+	
+	while (opcao != 9) {
+		printf ("\t MATRIZ DE 1000 POSICOES     \n");
+		printf ("1 . CARREGAR ALEATORIOS        \n");
+		printf ("2 . IMPRIMIR TODOS             \n");
+		printf ("3 . MAIOR VALOR                \n");
+		printf ("4 . MENOR VALOR                \n");
+		printf ("5 . POSICAO E QTA REPETICOES   \n");
+		printf ("6 . PARES                      \n");
+		printf ("7 . RELATORIO PARES vs impares \n");
+		printf ("9 . SAIR                       \n");
+		printf ("Digite opcao desejada: \n");
+		scanf ("%i", &opcao);
+		printf ("\n");
+		
+		if (opcao == 1) {
+			for (i = 0; i < 3; i++) {
+				for (j = 0; j < 3; j++) {
+					matriz[i][j] = 1 + rand () % 10;
+				}
+				printf ("\n");
+			}
+			
+		} else if (opcao == 2) {
+			printf ("\n");
+			for (i = 0; i < 3; i++) {
+				for (j = 0; j < 3; j++) {
+					printf ("%i  ", matriz[i][j]);
+				}
+				printf ("\n");
+			}
+			printf ("\n");
+			
+		} else if (opcao == 3) {
+			maior = matriz[0][0];
+			linha = 0;
+			coluna = 0;
+			
+			for (i = 0; i < 3; i++) {
+				for (j = 0; j < 3; j++) {
+					if (matriz[i][j] > maior) {
+						maior = matriz[i][j];
+						linha = i;
+						coluna = j;
+					}
+				}
+			}
+			printf ("Maior valor da matriz: %i \n", maior);
+			printf ("Posicao: [%i] [%i] = %i \n", linha, coluna, maior);
+			printf ("\n");
+			
+		} else if (opcao == 4) {
+			menor = matriz[0][0];
+			linha = 0;
+			coluna = 0;
+			
+			for (i = 0; i < 3; i++) {
+				for (j = 0; j < 3; j++) {
+					if (matriz[i][j] < menor) {
+						menor = matriz[i][j];
+						linha = i;
+						coluna = j;
+					}
+				}
+			}
+			printf ("Menor valor da matriz: %i \n", menor);
+			printf ("Posicao: [%i] [%i] = %i \n", linha, coluna, menor);
+			printf ("\n");
+			
+		} else if (opcao == 5) {
+			repetido = 0;
+			printf ("Digite um numero de 1 a 10: \n");
+			scanf ("%i", &numero);
+			
+			for (i = 0; i < 3; i++) {
+				for (j = 0; j < 3; j++) {
+					if (numero == matriz[i][j]) {
+						printf ("Repetido na posicao [%i][%i] = %i \n", i,j, numero);
+						repetido += 1;
+					}
+				}
+			}
+			printf ("Total de repeticoes: %i \n\n", repetido);
+			printf ("\n");
+			
+		} else if (opcao == 6) {
+			par = 0;
+			for (i = 0; i < 3; i++) {
+				for (j = 0; j < 3; j++) {
+					if (matriz[i][j] % 2 == 0) {
+						par = matriz[i][j];
+						printf ("Numeros pares na matriz [%i][%i] = %i \n", i, j, par);
+					}
+				}
+			}
+			printf ("\n");
+			
+			
+		} else if (opcao == 7) {
+			contaPar = 0;
+			contaImpar = 0;
+			somaPar = 0;
+			somaImpar = 0;
+			
+			for (i = 0; i < 3; i++) {
+				for (j = 0; j < 3; j++) {
+					if (matriz[i][j] % 2 == 0) {
+						contaPar += 1;
+						somaPar += matriz[i][j];
+						
+					} else if (matriz[i][j] % 2 == 1) {
+						contaImpar += 1;
+						somaImpar += matriz[i][j];
+					}
+				}
+			}
+			
+			valorMedioPar = somaPar / contaPar;
+			valorMedioImpar = somaImpar / contaImpar;
+			
+			if (somaPar > somaImpar) {
+				calculo = somaPar;
+			} else {
+				calculo = somaImpar;
+			}
+			
+			if (contaPar > contaImpar) {
+				calculoContagem = contaPar;
+			} else {
+				calculoContagem = contaImpar;
+			}
+		
+			printf ("\t RELATORIO DO PROCESSAMENTO \n");
+			printf ("Total de pares: %i \n", contaPar);
+			printf ("Total de impares: %i \n", contaImpar);
+			printf ("Soma dos valores pares: %i \n", somaPar);
+			printf ("Soma dos valores impares: %i \n", somaImpar);
+			printf ("Valor medio par: %i \n", valorMedioPar);
+			printf ("Valor medio impar: %i \n", valorMedioImpar);
+			printf ("Maior Soma: %i \n", calculo);
+			printf ("Maior contagem: %i \n", calculoContagem);
+			printf ("\n");
+		}
+	}
+
+	
+	system ("pause");
+	return 0;
+}

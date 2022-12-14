@@ -1,0 +1,261 @@
+LISTA 05
+COMANDOS DE REPETIÇÃO
+
+Q1 
+QUADRADO – Crie uma aplicação de percorra do número 15 ao número 50 e apresente o valor ao 
+quadrado de cada um dos valores entre 15 e 50.
+
+
+int main(int argc, char *argv[])  {
+	
+	
+	//Declaração de variaveis
+	int i, iquadrado = 0;
+
+	
+	//Processamento
+	for (i = 15; i <= 50; i++) {
+		iquadrado = i * i;
+		printf ("O quadrado de %i e %i: \n", i, iquadrado);
+	}
+	return 0;
+}
+
+
+ 
+ 
+Q2 
+TABUADA – Crie uma aplicação que apresente o resultado de uma tabuada de um número qualquer 
+fornecido pelo usuário, por exemplo, se o usuário fornecer o número 2, deverá ser impresso os valores 
+da seguinte forma: 
+2 x 1 = 2 
+2 x 2 = 4 
+2 x 3 = 6 
+(...) 
+2 x 10 = 20 
+
+RESOLUÇÃO
+
+int main(int argc, char *argv[]) {
+	//Declaração de variaveis
+	int n, i, tabuada;
+	
+	//Entrada
+	printf ("Digite qual tabuada deseja imprimir: \n");
+	scanf ("%i", &n);
+	
+	//Processamento
+	for (i = 1; i <= 10; i++) {
+		tabuada = n * i;
+		printf ("%i x %i =  %i\n", n, i, tabuada );
+	}
+	return 0;
+}
+
+
+ 
+Q3 
+SOMA 100 VALORES – Crie uma aplicação que percorra do número 1 ao número 100, ao final deverá 
+ser exibida a soma de todos os valores entre 1 e 100 (1+2+3+4+5+6+7+...97+98+97+100).  
+ 
+
+int main(int argc, char *argv[]) {
+	
+	//Declaração de variaveis
+	int i, soma = 0;
+	
+	//Processamento
+	for (i = 1; i <= 4; i++){
+		soma = soma + i;
+		printf ("Resultado da soma do intervalo %i: %i\n",i,soma);
+	}
+	return 0;
+}
+
+
+
+
+
+Q4 
+SOMAR PARES – Crie uma aplicação que percorra os valores na faixa de 1 a 500 e que no final apresente 
+a soma de todos os valores pares existentes dentro da faixa percorrida. 
+ 
+int main(int argc, char *argv[]) {
+	//Declaração de variaveis
+	int i, somaPar = 0;
+	
+	//Processamento
+	for (i = 1; i <= 500; i++){
+		if (i % 2 == 0) {
+			somaPar = somaPar + i;
+		}
+	}
+	printf ("Soma dos pare: %i\n", somaPar);
+	
+	return 0;
+}
+
+
+
+Q5 
+EXIBIR ÍMPARES – Crie uma aplicação que percorra os valores em uma faixa de 1 a 20 e apresente 
+todos os valores ímpares existentes dentro desta faixa de valores.   
+ 
+int main(int argc, char *argv[]) {
+	//Declaração de variaveis
+	
+	int i, impar = 0;
+	
+	//Processamento
+	for (i = 1; i <= 20; i++){
+		if (i % 2 == 1) {
+			impar = i;
+			printf ("Impares dos intervalo: %i\n", impar);
+		}
+	}
+	return 0;
+}
+
+
+
+Q6 
+APRESENTAR DIVISEIS POR 4 – Crie uma aplicação que exiba todos os números divisíveis por 4 que 
+estão entre a faixa de valores de 1 a 200.  
+ 
+
+int main(int argc, char *argv[]) {
+	//Declaração de variaveis
+	int i , divisivel = 0;
+	
+	//Processamento
+	for (i = 1; i <= 200; i++) {
+		if (i % 4 == 0) {
+			divisivel = i;
+			printf ("%i e divisivel por 4 \n",divisivel);
+		}
+	}
+	system("pause");
+	return 0;
+}
+
+
+Q7 
+POTÊNCIA – Crie uma aplicação que apresenta o resultado das potências de 3, variando do expoente 
+0 até o expoente 15. Deve ser considerado que qualquer número elevado a zero é 1, e elevado a 1 é 
+ele próprio. Deverá ser apresentado, observando a seguinte definição: 
+ 
+
+
+
+(^ = representa potencia)
+3^0 = 1 
+3^1 = 3 
+3^2 = 9 
+(...) 
+3^15=14348907 
+ 
+
+#include <math.h>
+// não esquecer de incluir a biblioteca !!!!
+
+int main(int argc, char *argv[]) {
+	
+	int i, potencia = 3;
+	
+	for (i = 0; i <= 15; i++) {
+		potencia = pow(3,i);
+	
+		
+		printf ("3 elevado a %i : %i\n" , i,potencia);
+	}
+		return 0;
+}
+
+ 
+Q8 
+BASE E EXPOENTE – Crie um programa que apresente como resultado o valor de uma potência de uma 
+base qualquer elevada a um expoente qualquer, ou seja, BE, em que B é o valor da BASE e E o valor do 
+EXPOENTE. Os valores da base e do expoente devem ser fornecidos pelo usuário. Dica: Inicie com 
+valore de base e expoente baixos, como por exemplo base 3 e expoente 4, 34 = 81. 
+ 
+
+#include <math.h>
+// não esquecer de adicionar a biblioteca !!!!
+
+int main(int argc, char *argv[]) {
+	
+	//Declaração de variaveis
+	int base, expoente, resultado = 0;
+	
+	//Entrada
+	printf ("Digite o numero da base: \n");
+	scanf ("%i", &base);
+	printf ("Digite o numero da expoente: \n");
+	scanf ("%i", &expoente);
+	
+	//Processamento
+	resultado = pow (base,expoente);
+	
+	//Saida
+	printf ("Resultado de %i elevado a %i: %i\n", base, expoente, resultado );
+	
+	return 0;
+}
+
+
+Q9 
+FATORIAL – Crie uma aplicação que deverá solicitar do usuário um valor inteiro qualquer, com base no 
+valor fornecido calcule o fatorial e apresente o resultado do fatorial do valor fornecido.  
+ 
+
+int main(int argc, char *argv[]) {
+	
+	//Declaração de variaveis
+	
+	int i, n, fatorial = 1;
+	
+	//Entrada
+	
+	printf ("Digite um numero: \n");
+	scanf ("%i", &n);
+	
+	//Processamento
+	for (i = 1; i <= n; i++) {
+		fatorial = fatorial * i;
+	}
+	printf ("\n O fatorial de %i e: %i\n\n", n, fatorial);
+	return 0;
+}
+
+
+
+Q10 
+SOMATORA DE FATORIAL – Crie um programa que efetue a leitura de 5 valores inteiros quaisquer 
+fornecidos pelo usuário, no final o programa deverá apresentar o total do somatório da fatorial de cada 
+valor lido.  
+
+
+
+int main(int argc, char *argv[]) {
+	/*neste exercicio criei duas variaveis de controle 
+	 uma para cada numero do usuario, e outra variavel de controle para
+	 executar o fatorial*/
+	
+	int i, ifat, n, fatorial, somaFatorial = 0;
+	
+	for (ifat = 1; ifat <= 5; ifat++) {
+		printf ("Digite um numero: \n");
+		scanf ("%i", &n);
+		
+		fatorial = 1;
+		for (i = 1; i <= n; i++) {
+			fatorial *= i;
+		}
+		somaFatorial += fatorial;
+	}
+	
+	printf ("\nSoma dos Fatoriais %i\n", somaFatorial);	
+	system ("pause");
+	return 0;
+}
+

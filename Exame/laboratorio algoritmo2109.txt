@@ -1,0 +1,168 @@
+exercicio 1
+
+#include <iostream>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) {
+	/* Calcule a media de 10 alunos
+	e apresentar se aprovado ou reprovado */
+	float nota1, nota2, media = 0.0;
+	int vcontrole = 0;
+	
+	
+	// vcontrole = vcontrole+1
+	
+	for (vcontrole = 1; vcontrole <= 10; vcontrole++) {
+	
+	
+	
+	printf ("Digite nota 1: \n");
+	printf ("Digite nota 2: \n");
+	scanf ("%f", &nota1);
+	scanf ("%f", &nota2);
+printf ("\n");
+media = (nota1 + nota2)/2;
+
+printf ("Media: \n%.2f\n", media);	
+
+if (media < 5.0){
+	printf ("Exame - Media: %.2f\n", media);
+} else {
+   printf ("Aprovado - Media : %.2f\n", media);
+   }
+}
+printf ("\n");
+	
+	return 0;
+}
+
+
+
+
+exercicio 2
+
+#include <iostream>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) {
+	/* Calcule a media de 10 alunos
+	e apresentar se aprovado ou reprovado */
+	float nota1, nota2, media = 0.0;
+	int vcontrole = 0;
+	int nexecucao = 0;
+	//neste caso, o proprio usuario determina a quantidade de vezes que deseja executar "nexecucao"
+	
+	printf ("Digite quantidade de vezes que deseja executar: \n");
+	scanf ("%i", &nexecucao);
+	
+	// vcontrole = vcontrole+1
+	
+	for (vcontrole = 1; nexecucao; vcontrole++) {
+	printf ("\n");
+	
+	
+	printf ("Digite nota 1: \n");
+	printf ("Digite nota 2: \n");
+	scanf ("%f", &nota1);
+	scanf ("%f", &nota2);
+printf ("\n");
+media = (nota1 + nota2)/2;
+
+printf ("Media: \n%.2f\n", media);	
+
+if (media < 5.0){
+	printf ("Exame - Media: %.2f\n", media);
+} else {
+   printf ("Aprovado - Media : %.2f\n", media);
+   }
+}
+printf ("\n");
+	
+	return 0;
+}
+
+
+exercicio3 
+
+
+#include <iostream>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) {
+	/* Crie uma calculadora basica com sistema de menus.
+	1. Soma / 2. Subtração / 3. Multiplicação / 4. Divisão */
+	
+	int opcao = 0;
+	float valor1, valor2, resultado = 0.0;
+	
+	while (opcao != 9) {
+		printf ("\n\nCalculadora Simples \n");
+		printf ("1. Soma             \n");
+		printf ("2. Subtracao        \n");
+		printf ("3. Multiplicacao    \n");
+		printf ("4. Divisao          \n");
+		printf ("9. Sair             \n");
+		printf ("Digite uma opcao:");
+		scanf ("%i", &opcao);
+		
+		if (opcao == 1) {
+			printf ("Digite um valor: \n");
+			scanf ("%f", &valor1);
+			printf ("Digite um valor: \n");
+			scanf ("%f", &valor2);
+			resultado = valor1 + valor2;
+			printf ("Resultado %.2f", resultado);
+		} else if (opcao == 2) {
+			printf ("Digite um valor: \n");
+			scanf ("%f", &valor1);
+			printf ("Digite um valor: \n");
+			scanf ("%f", &valor2);
+			resultado = valor1 - valor2;
+			printf ("Resultado %.2f", resultado);
+		} else if (opcao == 3) {
+			printf ("Digite um valor: \n");
+			scanf ("%f", &valor1);
+			printf ("Digite um valor: \n");
+			scanf ("%f", &valor2);
+			resultado = valor1 * valor2;
+			printf ("Resultado %.2f", resultado);
+			
+		} else if (opcao == 4) {
+			printf ("Digite um valor: \n");
+			scanf ("%f", &valor1);
+			printf ("Digite um valor: \n");
+			scanf ("%f", &valor2);
+			resultado = valor1 / valor2;
+			printf ("Resultado %.2f", resultado);
+	}
+	}
+	
+	return 0;
+}
+
+
+exercicio4
+
+
+#include <iostream>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) {
+	/* Quadrado - Crie uma aplicação que percorra do numero 15 
+	ao numero 50 e apresente o valor do quadrado de cada um dos valores entre 15 e 50. */
+	
+	int vi = 0;
+	int vquadrado = 0;
+	
+	for (vi = 15; vi<=50; vi++) {
+		vquadrado = vi * vi;
+		printf ("O quadrado de %i e %i. \n", vi, vquadrado);
+	}
+	
+	
+	return 0;
+}
